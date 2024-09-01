@@ -24,7 +24,8 @@ hexo.extend.generator.register('script', function(locals){
       valine: theme.vendors.js.valine,
       chart: theme.vendors.js.chart,
       copy_tex: theme.vendors.js.copy_tex,
-      fancybox: theme.vendors.js.fancybox
+      fancybox: theme.vendors.js.fancybox,
+      minio: theme.vendors.js.minio
     },
     css: {
       valine: theme.css + "/comment.css",

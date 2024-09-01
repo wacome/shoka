@@ -84,6 +84,34 @@ const siteRefresh = function (reload) {
   sideBarTab()
   sidebarTOC()
 
+  vendorJs('minio', function() {
+    videoElement = $('backgroundVideo')
+    if (typeof Minio === 'undefined') {
+      console.error('Minio client is not loaded');
+      return;
+    }
+
+    const minioClient = new Minio.Client({
+      endPoint: '192.168.50.237',
+      port: 9011,
+      useSSL: false,
+      accessKey: 'V9QD0L7hPQCGdOU0KhZ3',
+      secretKey: '7iN6ZWK8VrhQ0kF2D8bp10nNfkEMqbWKQkCdlFdw'
+    });
+
+    // 生成预签名 URL
+    minioClient.presignedGetObject('images', 'background1.mp4', 1094*24*60*60, function(err, presignedUrl) {
+      if (err) {
+        console.error('Error generating presigned URL:', err);
+        return;
+      }
+      console.log(presignedUrl)
+      if (videoElement) {
+        videoElement.src = presignedUrl;
+      }
+    });
+  });
+
   registerExtURL()
   postBeauty()
   tabFormat()
