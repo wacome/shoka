@@ -5,15 +5,21 @@
 # Site
 title: Hexo
 subtitle: subtitle
-description: 描述123
-keywords: 关键词1,关键词2 # edit for Theme.shoka
-author: John Doe
+description: Toycon的博客
+keywords: Blog,个人空间 # edit for Theme.shoka
+author: Toycon
 language: zh-CN # 这里只可以选 zh-CN、zh-HK、zh-TW、ja、en 这几个格式
 timezone: 'Asia/Shanghai'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://toycon.cn
+server:
+  port: 4000
+  log: false
+  ip: 0.0.0.0
+  compress: false
+  header: true
 root: /
 permalink: :title/ # edit for Theme.shoka
 permalink_defaults:
@@ -53,9 +59,8 @@ prismjs:
 default_category: uncategorized
 category_map: # edit for Theme.shoka
   计算机科学: computer-science
-  Java: java
-  二进制杂谈: note
-  零基础学Java语言-浙江大学-翁恺: course-1
+  哲学: philosophy
+  文学: literature
   Theme Shoka Documentation: theme-shoka-doc
 tag_map:
 
@@ -143,20 +148,20 @@ minify:
     exclude:
       - '**/*.min.js'
 
-# algolia:
-#   appId:
-#   apiKey:
-#   adminApiKey:
-#   chunkSize: 5000
-#   indexName:
-#   fields:
-#     - title #必须配置
-#     - path #必须配置
-#     - categories #推荐配置
-#     - content:strip:truncate,0,4000
-#     - gallery
-#     - photos
-#     - tags
+algolia:
+  appId: 43JE05K8WX
+  apiKey: 28239b249e039c3900d5d5622ff8595f
+  adminApiKey:
+  chunkSize: 5000
+  indexName: toycon_
+  fields:
+    - title #必须配置
+    - path #必须配置
+    - categories #推荐配置
+    - content:strip:truncate,0,4000
+    - gallery
+    - photos
+    - tags
 
 feed:
     limit: 20
